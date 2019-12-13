@@ -43,5 +43,10 @@ export default {
       description:
         "Not necessary in development but used in production for a variety of reasons",
     },
+    {
+      name: "menuLinks",
+      type: "menu",
+      title: "Menu Links",
+    },
   ],
 }
