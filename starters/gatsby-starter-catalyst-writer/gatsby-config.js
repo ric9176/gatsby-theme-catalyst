@@ -47,6 +47,7 @@ module.exports = {
     {
       resolve: `gatsby-theme-catalyst-core`,
       options: {
+        useSanity: true,
         useHero: true,
         displaySiteLogo: false,
         displaySiteTitle: true,

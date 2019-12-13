@@ -1,5 +1,5 @@
 import S from "@sanity/desk-tool/structure-builder"
-import { MdInsertDriveFile } from "react-icons/lib/md"
+import { MdInsertDriveFile, MdSettings } from "react-icons/lib/md"
 
 const hiddenDocTypes = listItem =>
   ![
@@ -10,12 +10,22 @@ const hiddenDocTypes = listItem =>
     "work",
     "logos",
     "categories",
+    "siteSettings",
   ].includes(listItem.getId())
 
 export default () =>
   S.list()
     .title("Content")
     .items([
+      S.listItem()
+        .title("Settings")
+        .child(
+          S.editor()
+            .id("siteSettings")
+            .schemaType("siteSettings")
+            .documentId("siteSettings")
+        )
+        .icon(MdSettings),
       S.listItem()
         .title("Published Work")
         .child(

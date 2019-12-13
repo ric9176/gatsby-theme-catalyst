@@ -1,22 +1,18 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
-import { useStaticQuery, graphql, Link } from "gatsby"
+import { Link } from "gatsby"
 import { useContext } from "react"
 import { animateScroll as scroll } from "react-scroll"
 import { HomeContext } from "gatsby-theme-catalyst-core"
 import { NavContext } from "gatsby-theme-catalyst-core"
+import { useSiteMetadata } from "gatsby-theme-catalyst-core"
+import { useSanityMetadata } from "gatsby-theme-catalyst-core"
+import { useCatalystConfig } from "gatsby-theme-catalyst-core"
 
 const SiteTitle = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
+  const { useSanity } = useCatalystConfig()
+  const { title } = useSiteMetadata()
+  const { title: sanityTitle } = useSanityMetadata()
   const [isNavOpen] = useContext(NavContext)
   const [isHome] = useContext(HomeContext)
 
@@ -58,7 +54,7 @@ const SiteTitle = () => {
           m: 0,
         }}
       >
-        {data.site.siteMetadata.title}
+        {useSanity ? sanityTitle : title}
       </h1>
     </TitleLinkWrapper>
   )

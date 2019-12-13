@@ -7,15 +7,11 @@ import { animateScroll as scroll } from "react-scroll"
 import { NavContext } from "gatsby-theme-catalyst-core"
 import { HomeContext } from "gatsby-theme-catalyst-core"
 import { useCatalystConfig } from "gatsby-theme-catalyst-core"
+import { useSiteMetadata } from "gatsby-theme-catalyst-core"
 
 const SiteLogo = () => {
   const data = useStaticQuery(graphql`
     query {
-      site {
-        siteMetadata {
-          title
-        }
-      }
       brandingLogo: file(name: { eq: "catalyst-logo" }) {
         childImageSharp {
           fluid(maxHeight: 300) {
@@ -26,6 +22,7 @@ const SiteLogo = () => {
     }
   `)
 
+  const { title } = useSiteMetadata()
   const [isNavOpen] = useContext(NavContext)
   const [isHome] = useContext(HomeContext)
   const { invertSiteLogo } = useCatalystConfig()
@@ -76,7 +73,7 @@ const SiteLogo = () => {
           filter: isNavOpen ? invertLogo : "none",
         }}
         fluid={data.brandingLogo.childImageSharp.fluid}
-        alt={data.site.siteMetadata.title}
+        alt={title}
         imgStyle={{ objectFit: "contain" }}
       />
     </ImgLinkWrapper>
