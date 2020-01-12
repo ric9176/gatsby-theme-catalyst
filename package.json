@@ -17,6 +17,7 @@
   "scripts": {
     "develop:core": "yarn workspace gatsby-starter-catalyst-core develop",
     "develop:basic": "yarn workspace gatsby-starter-catalyst-basic develop",
+    "develop:brochure": "yarn workspace gatsby-starter-catalyst-brochure develop",
     "develop:blog": "yarn workspace gatsby-starter-catalyst-blog develop",
     "develop:writer": "yarn workspace gatsby-starter-catalyst-writer develop",
     "clean:core": "yarn workspace gatsby-starter-catalyst-core clean",
