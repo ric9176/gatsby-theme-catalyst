@@ -16,6 +16,7 @@ const NavLayout = ({ children }) => {
         gridRow: "2 / 3",
         display: isNavOpen ? "flex" : isMobile ? "none" : "flex",
         flexDirection: "column",
+        variant: "variants.nav",
       }}
       role="navigation"
       aria-label="main-navigation"
